@@ -4,23 +4,17 @@ public:
 	// largest elements
 	int print2largest(int arr[], int n) {
 	    // code here
-	    int largest = INT_MIN;
-	    int secondlargest = INT_MIN;
-	    for(int i = 0; i<n; i++){
-	        if(arr[i]>largest){
-	            secondlargest = largest;
-	            largest = arr[i];
-	        }
-	        else{
-	            if(arr[i]>secondlargest && arr[i] < largest){
-	                secondlargest = arr[i];
+	    sort(arr , arr+n);
+	        int i = 0; 
+	        while(i<n){
+	            if(arr[n-1] != arr[n-1-i]){
+	                return arr[n-1-i];
 	            }
-	            if(secondlargest == INT_MIN){
-	                return -1;
+	         else{
+	               i++ ;
 	            }
 	        }
-	       
-	    }
-	    return secondlargest;
+	    
+	    return -1;
 	}
 };
